@@ -1,0 +1,14 @@
+module top_module(
+    input [31:0] a,
+    input [31:0] b,
+    input sub,
+    output [31:0] sum
+);
+    // w0 represents the carry out from the adder
+    wire w0;
+    wire [31:0] xor_out;
+    assign xor_out = {32{sub}}^ b;
+    add16 in1(.a(a[15:0]), .b(xor_out[15:0]), .cin(sub), .sum(sum[15:0]), .cout(w0) );
+    add16 in2(.a(a[31:16]), .b(xor_out[31:16]), .cin(w0), .sum(sum[31:16]), .cout(1'b0) );
+
+endmodule
