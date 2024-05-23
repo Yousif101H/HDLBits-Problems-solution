@@ -9,9 +9,9 @@ module top_module (
         if (reset) begin
             inter_mem <= 1'b0;
         end else begin
-            inter_mem <= d;
+            inter_mem <= d_i;
         end
     end
-    assign q = inter_mem;
+    assign q_o = inter_mem;
 
 endmodule
