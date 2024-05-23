@@ -1,0 +1,17 @@
+module top_module (
+    input             clk,
+    input             reset,            // Synchronous reset
+    input     [7:0]   d_i,
+    output    [7:0]   q_o
+);
+    reg [7:0] inter_mem; // intermediate memory to store the output of Q inside if
+    always @ (posedge clk) begin
+        if (reset) begin
+            inter_mem <= 1'b0;
+        end else begin
+            inter_mem <= d;
+        end
+    end
+    assign q = inter_mem;
+
+endmodule
