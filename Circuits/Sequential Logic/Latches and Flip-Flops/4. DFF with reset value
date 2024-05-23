@@ -1,8 +1,8 @@
 module top_module (
     input 					clk,
     input 				 	reset,
-    input 			[7:0] 	d,
-    output	reg		[7:0] 	q
+    input 			[7:0] 	d_i,
+    output	reg		[7:0] 	q_o
 );
     reg [7:0] mem;
     always @ (negedge clk) begin
