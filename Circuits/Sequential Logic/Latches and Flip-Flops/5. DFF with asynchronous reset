@@ -1,0 +1,16 @@
+module top_module (
+    input             clk,
+    input             areset,   // active high asynchronous reset
+    input     [7:0]   d_i,
+    output    [7:0]   q_o
+);
+    reg [7:0] mem;
+    always @ (posedge clk or posedge areset) begin
+        if(areset)
+            mem <= 8'b0000_0000;
+        else
+            mem <= d_i;
+    end
+    assign q_o = mem;
+
+endmodule
