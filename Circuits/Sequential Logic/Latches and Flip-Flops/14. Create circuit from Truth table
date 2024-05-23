@@ -1,0 +1,20 @@
+module top_module (
+    input       clk,
+    input       j_i,
+    input       k_i,
+    output      Q_o);
+    
+    
+    reg mem;
+    always @ (posedge clk) begin
+        case({j_i, k_i})
+            2'b00 : mem <= Q_o;
+            2'b01 : mem <= 1'b0;
+            2'b10 : mem <= 1'b1;
+            2'b11 : mem <= ~Q_o;
+        endcase
+    end
+    assign Q_o = mem;
+            
+
+endmodule
