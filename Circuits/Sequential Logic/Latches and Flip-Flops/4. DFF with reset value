@@ -9,8 +9,8 @@ module top_module (
         if (reset)
             mem <= 8'h34;
         else
-            mem <= d;
+            mem <= d_i;
     end
-    assign q = mem;
+    assign q_o = mem;
     
 endmodule
