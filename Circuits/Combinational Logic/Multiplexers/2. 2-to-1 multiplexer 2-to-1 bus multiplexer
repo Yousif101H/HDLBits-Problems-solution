@@ -1,0 +1,15 @@
+module top_module( 
+    input 		[99:0]  a, b,
+    input				sel,
+    output		[99:0]	out );
+    
+    reg [99:0] out_o;
+    always @ (*) begin
+        case(sel)
+            1'b0 : out_o = a;
+            1'b1 : out_o = b;
+        endcase
+    end
+    assign out = out_o;
+
+endmodule
